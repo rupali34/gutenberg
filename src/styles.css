@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+.main-container {
+    margin: auto;
+    float: initial;
+}
+
+.headingRow {
+    margin: auto;
+    /* width: 60%; */
+    height: 100%;
+    padding-bottom: 36px;
+    background: #908db91c;
+}
+
+/* @media(max-width:) */
+
+.heading1 {
+    font-family: 'Montserrat', sans-serif;
+    /* font-style: ; */
+    font-size: 48px;
+    color: #5E56E7;
+}
+
+.heading2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: #5E56E7;
+}
+
+.genre_Card {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+
+}
+
+.input_box {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.book_info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* 
+.book_Author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12 px;  
+} */

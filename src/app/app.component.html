@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <!-- First Page code -->
+  <div class="row" *ngIf="showHome">
+    <div class="col-lg-8 col-md-10 col-sm-12 main-container">
+      <div class="row headingRow">
+        <div class="col-lg-12 col-sm-12 projectName ">
+
+          <h1 class="heading1">
+            {{dataService.applicationName}}
+          </h1>
+
+          <p>
+            A social cataloging website that allows you to freely search its database of books, annotations, and
+            reviews.
+          </p>
+        </div>
+        <!-- List of book type buttons -->
+        <div class="col-lg-12 col-sm-12">
+          <div class="row">
+            <div *ngFor="let type of dataService.bookType" class="col-lg-6 col-sm-12">
+              <div class="buttonBook" (click)="getbooks(type)">
+                <i [class]="returnIconClass(type)"></i>
+                {{type}} <i class="fas fa-arrow-right iconstyle rightArrowIcon"></i> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Page code -->
+  <div *ngIf="!showHome">
+    <div class="title heading2">
+      <i class="fas fa-arrow-left iconstyle leftArrow" (click)="backToHome()"></i> {{dataService.selectedBookType}}
+    </div>
+    <div class="serachboxDiv">
+      <i class="fa fa-search searchIcon"></i>
+      <input class="searchBox" placeholder="Search" type="search" name="serchBook" #searchVal [(ngModel)]="serachText"
+        (keyup.enter)="onEnterSearch(searchVal.value)">
+      <!-- fas fa-times -->
+      <i class="fas fa-times crossIcon" *ngIf="searchVal.value.trim().length>0" (click)="searchVal.value=''"></i>
+    </div>
+  </div>
+
+  <div *ngIf="booklist && booklist.length>0">
+    <div class="bookRow row">
+      <!--loop for book list  -->
+      <div class="col-xs-4 col-sm-2 col-md-3 col-lg-2 book-class" *ngFor="let book of booklist">
+        <img class="images_rec_shape" src="http://www.gutenberg.org/cache/epub/74/pg74.cover.medium.jpg"
+          alt="{{book.title}}" (click)="getbookFormate(book)">
+        <div class="bookinfospan">
+          <div class="book_info">{{book?.title}}</div>
+          <div class="book_info opacity05">{{book.authors[0]?.name}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</div>
